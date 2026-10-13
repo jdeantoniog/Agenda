@@ -1,0 +1,11 @@
+/* NOTICIAS
+   Las pestañas (.news-tabs) están en base.css. */
+
+/* Noticias */
+.news-tabs .chip[aria-pressed="true"] { background: var(--oh-accent-bg); color: var(--oh-on-accent); border-color: var(--oh-accent-bg); }
+.news-list { list-style: none; margin: 0; padding: 0; }
+.news-list li { padding: 9px 0; border-top: 1px solid var(--line); }
+.news-list li:first-child { border-top: 0; }
+.news-list a { color: var(--ink); text-decoration: none; font-weight: 600; line-height: 1.3; }
+.news-list a:hover, .news-list a:focus-visible { text-decoration: underline; }
+.news-meta { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 2px; }

@@ -1,0 +1,26 @@
+/* EXPRESIONES ÚTILES */
+
+/* ---------- Expresiones útiles: 2 columnas x 6 ---------- */
+.xlist {
+  list-style: none; margin: 0; padding: 0; display: grid;
+  grid-template-columns: 1fr 1fr; grid-template-rows: repeat(6, auto); grid-auto-flow: column; gap: 0 14px;
+}
+.xlist li { padding: 5px 0; border-top: 1px solid var(--line); min-width: 0; line-height: 1.25; }
+.xlist li.col-top { border-top: 0; }
+.x-en { display: block; font-weight: 700; font-size: 0.92rem; }
+.x-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+.x-head h2 { margin: 0; }
+.xlist li { position: relative; padding-right: 26px; }
+.x-chk { position: absolute; right: 0; top: 5px; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--line); background: transparent; color: transparent; font: inherit; font-size: 0.75rem; line-height: 1; cursor: pointer; padding: 0; }
+.xlist li.learned .x-chk { background: var(--ok); border-color: var(--ok); color: #ffffff; }
+.xlist li.learned .x-en { color: var(--muted); text-decoration: line-through; }
+.repaso .x-es { color: transparent; background: var(--paper); border-radius: 4px; cursor: pointer; user-select: none; }
+.repaso .x-es::after { content: var(--toca-ver, "toca para ver"); color: var(--muted); font-size: 0.72rem; position: absolute; left: 0; bottom: 5px; }
+.repaso li:not(.show) .x-es { white-space: nowrap; overflow: hidden; height: 1.15em; }
+.repaso li.show .x-es { color: var(--muted); background: transparent; }
+.repaso li.show .x-es::after { content: none; }
+.repaso li { cursor: pointer; }
+.x-foot { margin: 10px 0 0; }
+.linkbtn { font: inherit; color: var(--focus); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+.x-es { display: block; color: var(--muted); font-size: 0.8rem; }
+@media (max-width: 520px) { .xlist { gap: 0 10px; } .x-en { font-size: 0.85rem; } .x-es { font-size: 0.75rem; } }

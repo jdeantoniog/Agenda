@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Inicio</title>
+<script>
+/* =============================================================
+   ENTRADA COMÚN
+   Abre la última versión vista en este navegador. Si no hay ninguna,
+   muestra la lista para elegir. Con ?elegir en la dirección, muestra
+   siempre la lista.
+   Para añadir una versión: una línea más en VERSIONES (mismos datos
+   que "versiones" en el config.js de cada versión).
+   La redirección usa la url de VERSIONES, no la guardada en el navegador:
+   si una carpeta cambia de nombre, basta con cambiarla aquí.
+   ============================================================= */
+var VERSIONES = [
+  { id: "usa-es", bandera: "ES", nombre: "España", url: "../inicio-usa-espana/index.html" },
+  { id: "usa-it", bandera: "IT", nombre: "Italia", url: "../inicio-usa-italia/index.html" },
+  { id: "usa-br", bandera: "BR", nombre: "Brasil", url: "../inicio-usa-brasil/index.html" },
+  { id: "usa-pl", bandera: "PL", nombre: "Polska", url: "../inicio-usa-polska/index.html" }
+];
+(function () {
+  if (/[?&]elegir\b/.test(location.search)) return;
+  try {
+    var u = JSON.parse(localStorage.getItem("inicio:v1:ultima") || "null");
+    var v = u && VERSIONES.filter(function (x) { return x.id === u.id; })[0];
+    if (v) location.replace(v.url);
+  } catch (e) {}
+})();
+</script>
+<style>
+  :root { --paper: #f4f4f3; --surface: #ffffff; --ink: #0e0e10; --muted: #5c5c60; --line: #e0e0dd;
+    box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --paper: #161618; --surface: #232325; --ink: #f2f2f2; --muted: #a3a3a8; --line: #3a3a3d; } }
+  *, *::before, *::after { box-sizing: inherit; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 480px; margin: 0 auto; padding: 40px 16px; display: grid; gap: 12px; }
+  a { display: flex; align-items: center; gap: 14px; padding: 14px; border-radius: 14px; background: var(--surface);
+      border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+  .f { width: 60px; height: 40px; border-radius: 4px; box-shadow: 0 0 0 1px var(--line); flex: none; }
+</style>
+</head>
+<body>
+<main id="lista"></main>
+<script>
+// Banderas: mismo dibujo que en las páginas de cada versión
+var FLAGS = {
+    ES: { svg: function () {
+      return '<rect width="750" height="500" fill="#aa151b"/><rect y="125" width="750" height="250" fill="#f1bf00"/>'; } },
+    IT: { svg: function () {
+      return '<rect width="250" height="500" fill="#008c45"/><rect x="250" width="250" height="500" fill="#f4f5f0"/><rect x="500" width="250" height="500" fill="#cd212a"/>'; } },
+    PL: { svg: function () {
+      return '<rect width="750" height="250" fill="#ffffff"/><rect y="250" width="750" height="250" fill="#dc143c"/>'; } },
+    BR: { svg: function () {
+      var stars = [[318, 292, 6], [352, 318, 5], [384, 300, 6], [410, 326, 5], [436, 296, 6], [372, 344, 5], [338, 270, 4], [456, 318, 4]]
+        .map(function (s) { return '<circle cx="' + s[0] + '" cy="' + s[1] + '" r="' + s[2] + '" fill="#ffffff"/>'; }).join("");
+      return '<rect width="750" height="500" fill="#009c3b"/><polygon points="64,250 375,42 686,250 375,458" fill="#ffdf00"/>' +
+        '<defs><clipPath id="br-globe"><circle cx="375" cy="250" r="131"/></clipPath></defs>' +
+        '<circle cx="375" cy="250" r="131" fill="#002776"/>' +
+        '<path d="M232 226 Q380 176 516 290" fill="none" stroke="#ffffff" stroke-width="24" clip-path="url(#br-globe)"/>' + stars; } }
+  };
+VERSIONES.forEach(function (v) {
+  var a = document.createElement("a"), F = FLAGS[v.bandera];
+  a.href = v.url;
+  a.innerHTML = '<svg class="f" viewBox="0 0 750 500" aria-hidden="true">' + (F ? F.svg() : "") + "</svg><span></span>";
+  a.lastChild.textContent = v.nombre;
+  document.getElementById("lista").appendChild(a);
+});
+</script>
+</body>
+</html>

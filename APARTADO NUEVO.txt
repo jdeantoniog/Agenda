@@ -1,0 +1,8 @@
+Apartado nuevo: Acceso resto
+Qué hace: [link de acceso al resto de las paginas]
+Páginas donde va: [Todas y al final] y dónde (p. ej. justo después del conversor)
+Idiomas: [solo español]
+Aspecto: como [una tarjeta normal tipo boton]; lo que tenga que ser distinto
+Opciones en config.js: [ninguna]
+Se guarda algo en el móvil: [no]
+Adjunto: []
