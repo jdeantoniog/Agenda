@@ -15,7 +15,7 @@
   "use strict";
 
   // Sube este número al publicar cambios en apartados/: obliga al navegador a no usar copias viejas.
-  var VERSION = "4";
+  var VERSION = "5";
 
   /* Qué necesita cada apartado.
      libs: librerías del núcleo (nucleo/<lib>.js y, si existe, nucleo/<lib>.css)
@@ -26,6 +26,7 @@
     "relojes":         { css: true },
     "tiempo":          { libs: ["tiempo"] },
     "tiempo-buscador": { libs: ["tiempo"], css: true },
+    "mapa":            { css: true },
     "avisos":          { css: true },
     "noticias":        { css: true },
     "conversor":       { css: true },

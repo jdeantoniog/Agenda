@@ -83,5 +83,25 @@ window.TEXTOS = {
   calcRestar: "Subtrair",
   calcSumar: "Somar",
   calcDecimal: "Vírgula decimal",
-  calcIgual: "Igual"
+  calcIgual: "Igual",
+  // Mapa (dónde estoy)
+  mapaTitulo: "Onde estou",
+  mapaNoConsultada: "Localização não consultada",
+  mapaPermiso: "O celular vai pedir permissão para usar sua localização.",
+  mapaPulsa: "Toque em «Ver minha localização» para mostrar o mapa.",
+  mapaVer: "Ver minha localização",
+  mapaActualizar: "Atualizar",
+  mapaAbrir: "Abrir no Google Maps",
+  mapaCopiar: "Copiar coordenadas",
+  mapaCopiadas: "Copiadas",
+  mapaNoCopiado: "Não foi possível copiar",
+  mapaTu: "Sua localização",
+  mapaPrecision: "{0} · precisão de uns {1} m",
+  mapaIframe: "Mapa da sua localização",
+  mapaHttps: "A localização só funciona em páginas https.",
+  mapaSinGeo: "Este navegador não permite usar a localização.",
+  mapaBuscando: "Buscando sua localização…",
+  mapaDenegado: "Permissão de localização negada. Ative-a nas configurações do navegador para esta página.",
+  mapaTardado: "A localização demorou demais. Tente de novo.",
+  mapaError: "Não foi possível obter a localização. Se abrir o arquivo localmente no Safari, teste no Chrome ou já publicado."
 };

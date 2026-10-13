@@ -83,5 +83,25 @@ window.TEXTOS = {
   calcRestar: "Sottrai",
   calcSumar: "Somma",
   calcDecimal: "Virgola decimale",
-  calcIgual: "Uguale"
+  calcIgual: "Uguale",
+  // Mapa (dónde estoy)
+  mapaTitulo: "Dove sono",
+  mapaNoConsultada: "Posizione non rilevata",
+  mapaPermiso: "Il telefono chiederà il permesso di usare la tua posizione.",
+  mapaPulsa: "Premi «Vedi la mia posizione» per mostrare la mappa.",
+  mapaVer: "Vedi la mia posizione",
+  mapaActualizar: "Aggiorna",
+  mapaAbrir: "Apri in Google Maps",
+  mapaCopiar: "Copia coordinate",
+  mapaCopiadas: "Copiate",
+  mapaNoCopiado: "Impossibile copiare",
+  mapaTu: "La tua posizione",
+  mapaPrecision: "{0} · precisione di circa {1} m",
+  mapaIframe: "Mappa della tua posizione",
+  mapaHttps: "La posizione funziona solo nelle pagine https.",
+  mapaSinGeo: "Questo browser non permette di usare la posizione.",
+  mapaBuscando: "Ricerca della posizione…",
+  mapaDenegado: "Permesso di posizione negato. Attivalo nelle impostazioni del browser per questa pagina.",
+  mapaTardado: "La posizione ha impiegato troppo tempo. Riprova.",
+  mapaError: "Impossibile ottenere la posizione. Se apri il file in locale con Safari, provalo con Chrome o già pubblicato."
 };

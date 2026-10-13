@@ -83,5 +83,25 @@ window.TEXTOS = {
   calcRestar: "Odejmij",
   calcSumar: "Dodaj",
   calcDecimal: "Przecinek dziesiętny",
-  calcIgual: "Równa się"
+  calcIgual: "Równa się",
+  // Mapa (dónde estoy)
+  mapaTitulo: "Gdzie jestem",
+  mapaNoConsultada: "Lokalizacja nie została sprawdzona",
+  mapaPermiso: "Telefon poprosi o zgodę na użycie lokalizacji.",
+  mapaPulsa: "Naciśnij «Pokaż moją lokalizację», aby wyświetlić mapę.",
+  mapaVer: "Pokaż moją lokalizację",
+  mapaActualizar: "Odśwież",
+  mapaAbrir: "Otwórz w Mapach Google",
+  mapaCopiar: "Kopiuj współrzędne",
+  mapaCopiadas: "Skopiowano",
+  mapaNoCopiado: "Nie udało się skopiować",
+  mapaTu: "Twoja lokalizacja",
+  mapaPrecision: "{0} · dokładność ok. {1} m",
+  mapaIframe: "Mapa Twojej lokalizacji",
+  mapaHttps: "Lokalizacja działa tylko na stronach https.",
+  mapaSinGeo: "Ta przeglądarka nie pozwala używać lokalizacji.",
+  mapaBuscando: "Szukanie lokalizacji…",
+  mapaDenegado: "Brak zgody na lokalizację. Włącz ją w ustawieniach przeglądarki dla tej strony.",
+  mapaTardado: "Ustalanie lokalizacji trwało zbyt długo. Spróbuj ponownie.",
+  mapaError: "Nie udało się ustalić lokalizacji. Jeśli otwierasz plik lokalnie w Safari, spróbuj w Chrome lub po opublikowaniu."
 };
