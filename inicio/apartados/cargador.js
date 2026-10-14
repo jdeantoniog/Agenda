@@ -15,7 +15,7 @@
   "use strict";
 
   // Sube este número al publicar cambios en apartados/: obliga al navegador a no usar copias viejas.
-  var VERSION = "6";
+  var VERSION = "7";
 
   /* Qué necesita cada apartado.
      libs: librerías del núcleo (nucleo/<lib>.js y, si existe, nucleo/<lib>.css)
@@ -85,7 +85,7 @@
   var scripts = ["textos/es.js"]
     .concat(idioma !== "es" ? ["textos/" + idioma + ".js"] : [])
     .concat(datos.map(function (d) { return "datos/" + (D[d] || d) + ".js"; }))
-    .concat(["nucleo/nucleo.js"])
+    .concat(["nucleo/nucleo.js", "nucleo/estadisticas.js"])     // estadísticas: en todas las páginas
     .concat(libs.map(function (l) { return "nucleo/" + l + ".js"; }))
     .concat(nombres.map(function (k) { return "modulos/" + k + ".js"; }));
 
