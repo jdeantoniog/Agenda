@@ -35,10 +35,9 @@ window.CUMPLES = [
   ["09-27", "Mámi"],
   // Octubre
   ["10-03", "Abuito"],
-  ["10-14", "Marta"{ avisar: false, texto: "¡Feliz cumpleaños Marta!", lista: "Tu cumpleaños" }],
-],
-  ["10-18", "Marina"],
-  ["10-20", "Elisa"],
+  ["10-14", "Marta", {texto: "¡Feliz cumpleaños Marta!", lista: "Tu cumpleaños" }],
+  ["10-18", "Marina", {texto: "¡Feliz cumpleaños Marina!", lista: "Tu cumpleaños" }],
+  ["10-20", "Elisa", {texto: "¡Feliz cumpleaños Elisa!", lista: "Tu cumpleaños" }],
   // Noviembre
   // Diciembre
 ];
