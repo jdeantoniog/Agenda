@@ -1,0 +1,61 @@
+/* TIEMPO (librería del núcleo)
+   Tarjeta de previsión: la usan los apartados "tiempo" y "tiempo-buscador". */
+
+/* ---------- Previsión: bloques de temperatura ---------- */
+.tr { display: flex; align-items: baseline; justify-content: center; gap: 5px; border-radius: 8px; padding: 4px 6px; background: var(--paper); font-variant-numeric: tabular-nums; }
+.tr i { font-style: normal; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+.tr b { font-size: 1.15rem; font-weight: 800; line-height: 1.1; }
+.tmax b { color: var(--t-max); }
+.tmin b { color: var(--t-min); }
+
+/* ---------- Previsión detallada ---------- */
+.days { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.day { border: 1px solid var(--line); border-radius: 10px; padding: 10px; min-width: 0; overflow-wrap: anywhere; }
+.day-name { font-weight: 700; }
+.day-temp { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; margin: 6px 0; }
+.day-temp .tr { flex-direction: column; align-items: center; gap: 0; padding: 4px 2px; min-width: 0; }
+.day p { margin: 2px 0; font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.day p.snow { color: var(--deep-blue); font-weight: 700; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .day p.snow { color: #8fb4ff; } }
+.day-head { display: flex; justify-content: space-between; align-items: center; gap: 4px; }
+.day-head { flex-wrap: wrap; row-gap: 2px; }
+.day-name { overflow-wrap: normal; white-space: nowrap; }
+.day-ico { width: 28px; height: 28px; flex: none; }
+.day-ico svg { width: 100%; height: 100%; display: block; }
+.details .card:first-child { margin-top: 16px; }
+
+/* ---------- Tiempo: hoy y hora a hora ---------- */
+.today-main { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.today-left { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.today-name { font-weight: 800; font-size: 1.25rem; }
+.today-ico { width: 34px; height: 34px; flex: none; }
+.today-ico svg, .h-i svg { width: 100%; height: 100%; display: block; }
+.today-desc { color: var(--muted); font-size: 0.9rem; }
+.today-range { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; min-width: 150px; flex: none; }
+.today-meta { margin: 8px 0 0; font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.today-meta strong { color: var(--ink); }
+.stale { color: var(--mid); font-weight: 700; }
+.hours {
+  position: relative; display: flex; gap: 4px; overflow-x: auto; margin: 12px 0 0; padding-bottom: 6px;
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+}
+.hour { flex: 0 0 50px; text-align: center; border-radius: 10px; background: var(--paper); padding: 6px 2px; font-variant-numeric: tabular-nums; scroll-snap-align: start; }
+.hour.past { opacity: 0.45; }
+.hour.now { background: var(--oh-accent-bg); color: var(--oh-on-accent); }
+.h-t { display: block; font-size: 0.72rem; color: var(--muted); }
+.h-i { display: block; width: 26px; height: 26px; margin: 2px auto; }
+.h-v { display: block; font-weight: 800; }
+.h-r { display: block; font-size: 0.68rem; color: var(--rain); min-height: 1.1em; }
+.hour.now .h-t, .hour.now .h-r { color: inherit; }
+.sub { font-size: 0.95rem; font-weight: 700; margin: 16px 0 8px; }
+@media (max-width: 520px) { .today-range { min-width: 128px; } .today-name { font-size: 1.1rem; } }
+
+@media (max-width: 520px) {
+  .days { gap: 5px; }
+  .day { padding: 6px; }
+  .day-name { font-size: 0.85rem; }
+  .day-ico { width: 22px; height: 22px; }
+  .day p { font-size: 0.74rem; }
+  .day-temp .tr i { font-size: 0.62rem; }
+  .day-temp .tr b { font-size: 1.05rem; }
+}
