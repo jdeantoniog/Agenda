@@ -13,7 +13,7 @@
 Inicio.libreria("estadisticas", function (I) {
   "use strict";
 
-  var SITIO = "familia";                       // ← código de tu cuenta de GoatCounter (lo que va antes de .goatcounter.com). Vacío = no cuenta nada.
+  var SITIO = "";                       // ← código de tu cuenta de GoatCounter (lo que va antes de .goatcounter.com). Vacío = no cuenta nada.
 
   // Este móvil no cuenta / vuelve a contar (lo respeta el propio script de GoatCounter).
   // Al abrir con #no-contar o #contar, y también si se añade a la dirección sin recargar.
@@ -27,9 +27,10 @@ Inicio.libreria("estadisticas", function (I) {
   window.addEventListener("hashchange", marca);
 
   var prueba = window.INICIO_CONTAR_LOCAL === true;  // solo para las pruebas automáticas
-  if (!SITIO) return;
-  if (document.documentElement.hasAttribute("data-laboratorio") && !prueba) return;
-  if (!prueba && (location.protocol === "file:" || /^(localhost|127\.)/.test(location.hostname))) return;
+  var diag = location.hash === "#estadisticas";
+  function aviso(t) { if (diag) alert("Estadísticas\n\n" + t); }
+  var excluido = false;
+  try { excluido = localStorage.getItem("skipgc") === "t"; } catch (e) {}
 
   // Página = su carpeta (/inicio-usa-espana), igual se entre por .../ o por .../index.html
   var partes = location.pathname.split("/").filter(Boolean);
@@ -37,10 +38,20 @@ Inicio.libreria("estadisticas", function (I) {
   var ruta = "/" + (partes.length ? partes[partes.length - 1] : "");
   var titulo = (I.CFG.titulo || "Inicio") + " · " + (I.CFG.version || ruta.slice(1));
 
+  // Motivos para no contar, en el orden en que se comprueban
+  if (!SITIO) return aviso("No cuenta: falta el código de GoatCounter en apartados/nucleo/estadisticas.js (línea 16).");
+  if (/[.\/:\s]/.test(SITIO)) return aviso("No cuenta: en la línea 16 va solo el código (p. ej. \"familia\"), no la dirección completa. Ahora pone: " + SITIO);
+  if (document.documentElement.hasAttribute("data-laboratorio") && !prueba) return aviso("No cuenta: el laboratorio no cuenta a propósito.");
+  if (!prueba && (location.protocol === "file:" || /^(localhost|127\.)/.test(location.hostname))) return aviso("No cuenta: archivo abierto en local, no desde la web publicada.");
+  if (excluido) aviso("No cuenta: ESTE dispositivo está excluido (#no-contar).\nPara que cuente, abre la página con #contar al final.");
+
   var listo = false, pendiente = 0;
   function enviar() {
     if (!window.goatcounter || !window.goatcounter.count) return;
+    var f = window.goatcounter.filter ? window.goatcounter.filter() : false;
     for (; pendiente > 0; pendiente--) window.goatcounter.count({ path: ruta, title: titulo });
+    if (!excluido) aviso(f ? "No cuenta. GoatCounter dice: " + f
+      : "Cuenta. Visita enviada a " + SITIO + ".goatcounter.com como " + ruta + ".\nEn el panel aparece en uno o dos minutos.");
   }
   function contar() {
     pendiente++;
@@ -51,6 +62,7 @@ Inicio.libreria("estadisticas", function (I) {
     s.id = "gc-script"; s.async = true; s.src = "https://gc.zgo.at/count.js";
     s.setAttribute("data-goatcounter", "https://" + SITIO + ".goatcounter.com/count");
     s.onload = function () { listo = true; enviar(); };
+    s.onerror = function () { aviso("No cuenta: el navegador no ha dejado cargar GoatCounter (gc.zgo.at).\nSuele ser un bloqueador de anuncios, la protección de rastreo del navegador o una VPN con filtro."); };
     document.head.appendChild(s);
   }
   I.estadisticas = { ruta: ruta, titulo: titulo };
