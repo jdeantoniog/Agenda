@@ -15,7 +15,7 @@
   "use strict";
 
   // Sube este número al publicar cambios en apartados/: obliga al navegador a no usar copias viejas.
-  var VERSION = "5";
+  var VERSION = "6";
 
   /* Qué necesita cada apartado.
      libs: librerías del núcleo (nucleo/<lib>.js y, si existe, nucleo/<lib>.css)
