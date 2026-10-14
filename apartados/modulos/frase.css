@@ -1,9 +1,0 @@
-/* FRASE DEL DÍA */
-
-/* ---------- Frase del día ---------- */
-.love { margin: 0 0 14px; text-align: center; font-size: 0.8rem; color: var(--muted); font-style: italic; line-height: 1.35; }
-.love-es { display: block; }
-.love-es:empty { display: none; }
-.love.special #love-en { font-style: normal; font-weight: 700; font-size: 0.9rem; color: var(--ink); }
-.love-pre { display: block; font-style: normal; font-weight: 600; color: var(--c-pais); margin-top: 4px; }
-.love-pre:empty { display: none; }
