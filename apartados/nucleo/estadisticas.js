@@ -13,7 +13,7 @@
 Inicio.libreria("estadisticas", function (I) {
   "use strict";
 
-  var SITIO = "";                       // ← código de tu cuenta de GoatCounter (lo que va antes de .goatcounter.com). Vacío = no cuenta nada.
+  var SITIO = "familia";                       // ← código de tu cuenta de GoatCounter (lo que va antes de .goatcounter.com). Vacío = no cuenta nada.
 
   // Este móvil no cuenta / vuelve a contar (lo respeta el propio script de GoatCounter).
   // Al abrir con #no-contar o #contar, y también si se añade a la dirección sin recargar.
